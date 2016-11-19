@@ -1,0 +1,23 @@
+11.18
+redis data structure server 
+ 
+   redis protocol RESP
+       *  client-server model /   using Tcp connection or oriented connection unix socket 
+	   *  port 6379 
+	   *  support data type :  integer string bulkString array error(special type)
+	   *  simple string: +sample\r\n
+	   *  integer:  :645\r\n
+	   *  bulk string:  $5\r\nsample\r\n
+	   *  array : *2\r\n$5\r\nsample\r\n:645\r\n
+	   *  above desc a message format between client and server 
+	   *  redis work a request -> response model like http but redis can do as Pub/Sub system 
+		  when a redis client connect to a pub/sub channel, it change to a push protocol 
+   redis.conf 
+       * configure file 
+   redis data type 
+	   * string key-value pair likes memcaced / set get / value stores string 
+	   * list   is a linked-list / can be used as a queue or stack /  common func: lpush rpush lpop rpop 
+	   * set  a unordered connection / can be used as a group / check member's relation fast 
+	   * sortedSet set with hash / skip-list with hash table / 
+	   * bitmap
+	   * keys  
