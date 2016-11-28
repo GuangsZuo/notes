@@ -1,0 +1,30 @@
+11.19
+    kafka design 
+       * kafka relies on the filesystem for storing and caching messages 
+            + about how to improve disk performance : key fact is the throughput of disk not the disk seek latency now , 
+            + JVM 
+            + use filesystem make cache more big / page cache disk  more aggressive 
+        * persistent data structure used : not Btree (many message systems use btree) persistent queue ? 
+        * too many small I/O operations and excessive byte copying can cause disk inefficiency
+           + to avoid too many small I/O operation, kafka use batching  
+	   + byte copying : use a standard binary message format shared by producer,consumer,broker ? 
+           + sendfile system call     
+        * end to end batch compression / compress multiple messages together / Gzip 
+	   + to elimate netbrandwidth bottleneck 
+	* producer 
+	    + load balancing 
+		client can control which partition it send message to : kafka expose an interface to specific the parition / use hash / can override
+                sample : you can specific userid as partition key , then all the message which has the same user id will be sent to same partition 
+                this is a very good quality
+            + async send 
+ 		batching is one of the big drivers of efficiency, enable batching will make kafka attempt to accumalte more data in memory and to send out 
+		larger batch in a single request. 
+		this is configurable about how much big is the buffer and the lattency
+	* consumer 
+	    the consumer works by issues "fetch" request to its broker leading this partitions it want to consume. 
+ 	    the comsumer retain its offset about its partition
+ 	    + pull model
+            	in pull model, consumer need to busy-waiting for data arrive sometimes, so there is config about long poll ? 
+	    + consumer position 
+		offset , more detail ?
+ 
