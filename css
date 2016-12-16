@@ -1,0 +1,12 @@
+Css Exp 
+    *  使用inline－block 可以使得元素既具备了块模块属性， 又能允许一行有多个元素 ，inline  使得元素变为行元素
+    ＊ 内部元素的block属性 只在 内部有效 
+      例如 ： 
+         inline－block      inline－block  
+		block		block
+		block    	block
+    ＊ 进行位置调整的时候      
+        1） 可以用position:relative; top : ....
+	2)  或者是 margin padding
+    ＊  flex 
+   

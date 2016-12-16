@@ -1,0 +1,7 @@
+ 
+
+
+    * str.find(str1) return -1 if str1 not found , but str.index() will throw an exception when str1 not found. 
+    * find vs rfind 
+    * python's substr method is elegant : str[st:ed+1]  => s[st]....s[ed]
+     

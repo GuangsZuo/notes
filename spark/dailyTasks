@@ -1,0 +1,51 @@
+
+
+
+1 . keepalive task
+     1) netbr 
+     2) appstate
+     3) cpturestatus
+     
+
+    按照每个直播来统计 以上的数据 
+     keepalive的总数量
+     netbr <200 <400 <800 >800的keepalive数量   
+     appstate 切后台次数   appstate 为1 表示在后台， 统计为1的个数
+     capture 失败的数量
+     keepalive miss 的时间占比
+     keepalive hole>30s 的数量
+     异常的流的数量  上述几种情况的并集
+     
+     对于每个直播统计异常的推流时长及占比 相比于正常的推流时长 
+     推流异常的情况包含 netbr<200kbps capture异常 miss 
+     
+    
+
+    data sample :
+ 
+2016-12-07 06:04:42,040 uWSGIWorker2Core17 INFO [Telemetry]{"event_name": "http_api_live_keepalive", "timestamp": 1481090682041, "data": {"phone_type": "iphone", "geo_city": "", "app_name": "DokiDokiLiveTest", "request_body": "{\"push_parm[databr]\": \"1054\", \"push_parm[capturestatus]\": \"0\", \"app_state\": \"0\", \"push_parm[wt_authorized]\": \"1\", \"push_parm[networkstatus]\": \"1\", \"push_parm[datastatus]\": \"0\", \"show_id\": \"4114810906\", \"push_parm[netbr]\": \"1067\", \"room_id\": \"u4881041474530826010001095\", \"push_parm[delayms]\": \"201\", \"push_parm[delaystatus]\": \"1\", \"statusbar_height\": \"20\"}", "latency": 0.001180887222290039, "url": "/api/live/keepalive/?appid=com.dokidokilive.ios.dev.Live&carrier=%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A&unique_device_id=14746110050001765v1.1&osn=iOS&phonetype=iphone&appname=DokiDokiLiveTest&osv=10.0.2&request_id=DF1A0728-CAFF-4626-92FD-150757735EA8&fmek=54bf7abc&fmev=37f9c686c38a53d746e31b9e9eb427d7&jb=0&device_type=iPhone%206%20Plus&channel_lang=ja&room_id=u4881041474530826010001095&deviceid=586AE36A-EF54-4B0C-B2AA-11836E3E26B1&lang=zh-Hans-CN&model=iPhone7%2C1&device_model=iPhone%206%20Plus&v=1.2", "ip": "47.88.139.188", "request_id": "DF1A0728-CAFF-4626-92FD-150757735EA8", "err_msg": "success", "app_id": "com.dokidokilive.ios.dev.Live", "unique_device_id": "14746110050001765v1.1", "response_body": {"status": 1}, "version": "1.2", "status_code": 200, "request_method": "POST", "err_code": 0, "geo": "", "uid": "u4881041474530826010001095"}, "ip": "10.116.27.14"}, utils-log_tel-54
+
+
+   request_body需要两重json解析
+   关键字段 :show_id , room_id, 以及推流参数
+   
+
+   对于一个直播 以showid汇聚所有的keepalive
+         
+   对于keepalive的数据存到db中， view层可能还需要一些计算逻辑
+   db中存储的是对于每个show的分析数据
+
+2.  login每日新增   
+      每日新增用户数： ctime 
+     return: [daytime, login_user_count, new_user_count]
+ 
+3.  录播 直播 
+    
+    return   
+    
+4 . anchor share link click analyze 
+
+      for every show, we send two request to Google service to get short_url and 
+    https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCI4gkmnmNlpDDzdvEXAeccsh6DAZyuJsg&shortUrl=https://goo.gl/ww6QUT&projection=FULLjjj     https://www.googleapis.com/urlshortener/v1/url/history?key=AIzaSyCI4gkmnmNlpDDzdvEXAeccsh6DAZyuJsg&；projection=FULL 
+    https://www.googleapis.com/urlshortener/v1/url/history?key=AIzaSyCI4gkmnmNlpDDzdvEXAeccsh6DAZyuJsg&start-token=&jjjjprojection=FULL
+
