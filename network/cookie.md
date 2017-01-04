@@ -7,4 +7,3 @@ and the session cookie is only kept in this session, when browser closed, the co
 # XSS     note: the site here is not web-site, rather than host or machine . 
 # CSRF    
 
-

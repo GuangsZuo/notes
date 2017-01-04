@@ -1,0 +1,21 @@
+src/adlist.c adlist.h
+    double linked list support 
+    iterate , copy all list. insert elem, del elem , search elem 
+    and the list struct has own match\dup\free method . 
+
+src/ae.c
+    event loop
+    time event :定时器事件
+    file event ：IO事件 
+typedef struct aeEventLoop {
+    int maxfd;   /* highest file descriptor currently registered */
+    int setsize; /* max number of file descriptors tracked */
+    long long timeEventNextId;
+    time_t lastTime;     /* Used to detect system clock skew */
+    aeFileEvent *events; /* Registered events */ register file event 
+    aeFiredEvent *fired; /* Fired events */
+    aeTimeEvent *timeEventHead;
+    int stop;
+    void *apidata; /* This is used for polling API specific data */
+    aeBeforeSleepProc *beforesleep;
+} aeEventLoop;   

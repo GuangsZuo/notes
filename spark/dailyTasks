@@ -40,7 +40,13 @@
      return: [daytime, login_user_count, new_user_count]
  
 3.  录播 直播 
-    
+    对于每个show进行统计分析 
+       1）总观看时长
+       2）观看时长分布 <5min <10min <30min <60min >60min 的人数 live
+                        <30s <1min  <5min <10min >10min 的人数 record
+    去重 
+      按照 showid ＋ uid 作为key group  
+    现去重 再计算
     return   
     
 4 . anchor share link click analyze 
@@ -49,3 +55,9 @@
     https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCI4gkmnmNlpDDzdvEXAeccsh6DAZyuJsg&shortUrl=https://goo.gl/ww6QUT&projection=FULLjjj     https://www.googleapis.com/urlshortener/v1/url/history?key=AIzaSyCI4gkmnmNlpDDzdvEXAeccsh6DAZyuJsg&；projection=FULL 
     https://www.googleapis.com/urlshortener/v1/url/history?key=AIzaSyCI4gkmnmNlpDDzdvEXAeccsh6DAZyuJsg&start-token=&jjjjprojection=FULL
 
+5 . local test environment :
+      saveAsSequenceFile
+      raw log -> hive -> analyze 
+    o
+6.  push notification 点击率
+    
