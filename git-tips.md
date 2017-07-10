@@ -3,8 +3,8 @@
 
 ### git reflog
    
-### git reset --merge <commit> 
+### git reset --merge '<commit>' 
     if you want to revert merge which is not pushed yet.
 
-### git checkout <commit> -- <file> 
+### git checkout '<commit>' -- '<file>' 
     change the file to version of <commit> 
