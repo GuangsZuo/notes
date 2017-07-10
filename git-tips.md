@@ -1,5 +1,5 @@
 ### git reset --soft HEAD~n && git commit  
-   squash the last n commits , but if some commits is already in origin, you might to git push -f .
+    squash the last n commits , but if some commits is already in origin, you might to git push -f .
 
 ### git reflog
    
