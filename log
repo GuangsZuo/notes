@@ -1,0 +1,10 @@
+log is an append-only, ordered sequence of records
+log record what happened and when
+
+
+more and more event logs  
+
+log Files and Event part is very interesting
+
+building a scalable log Part tells about some optimation on kafka
+
