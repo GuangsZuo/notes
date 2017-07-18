@@ -1,1 +1,2 @@
- * crontab  a job sheduler 
+### nohup python work.py > work.log 2>&1 &
+    when there are no output appending to work.log, maybe stdout buffering. you could use python -u to avoid buffering stdout.
