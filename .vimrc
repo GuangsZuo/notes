@@ -34,13 +34,9 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'easymotion/vim-easymotion'
 
-Plugin 'jelera/vim-javascript-syntax'
-
 Plugin 'jacoborus/tender.vim'
 
 Plugin 'bling/vim-airline'
-
-Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
